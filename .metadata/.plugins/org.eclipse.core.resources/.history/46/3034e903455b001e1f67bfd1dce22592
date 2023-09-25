@@ -105,13 +105,13 @@ int main(void)
 			 HAL_GPIO_WritePin(LED_RED_GPIO_Port, LED_RED_Pin, GPIO_PIN_SET);
 			 HAL_GPIO_WritePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin, GPIO_PIN_RESET);
 		 }
-		 else if(counter >= 9 && counter <= 10)
+		 else if(counter >= 9 && counter < 11)
 		 {
 			 HAL_GPIO_WritePin(LED_GREEN_GPIO_Port, LED_GREEN_Pin, GPIO_PIN_SET);
 			 HAL_GPIO_WritePin(LED_YELLOW_GPIO_Port, LED_YELLOW_Pin, GPIO_PIN_RESET);
 		 }
 
-		 if(counter == 10)
+		 if(counter == 11)
 		 	 {
 		 		 counter= 0;
 		 	 }
