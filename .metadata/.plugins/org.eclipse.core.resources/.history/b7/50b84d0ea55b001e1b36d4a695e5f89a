@@ -103,7 +103,7 @@ int main(void)
   }
   void setNumberOnClock(int num) {
 	  if(num >= 0 && num <= 11){
-		 //turnOffAllLEDs();
+		 /turnOffAllLEDs();
 		  switch(num){
 		  case 0:
 			  HAL_GPIO_WritePin(ZERO_GPIO_Port, ZERO_Pin, GPIO_PIN_RESET);
@@ -247,16 +247,16 @@ int hourChange(int hour){
 	}
 	return validHour;
 }
- int hour = 16;
- int min = 55;
+  //int hour = 16;
+  //int min = 55;
   int sec = 0;
   int counter=0;
   while (1)
   {
-	  turnOnAllLEDs();
-	  setNumberOnClock(roundDownToNearest5(sec));
-	  setNumberOnClock(roundDownToNearest5(min));
-	  setNumberOnClock(hourChange(hour));
+	  turnOffAllLEDs();
+  	  //clearNumberOnClock(counter);
+	  //counter++;
+	  //if(counter > 11) counter=0;
 	  HAL_Delay(1000);
     /* USER CODE END WHILE */
 
