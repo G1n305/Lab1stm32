@@ -230,7 +230,7 @@ int main(void)
 		  }
 	  }
   }
-  void clearNumberOnClock60(int num){
+  void clearNumberOnClock(int num){
 	  if(num >= 0 && num < 60){
 		  //turnOnAllLEDs();
 		  switch(num){
