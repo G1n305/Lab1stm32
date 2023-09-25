@@ -250,14 +250,28 @@ int hourChange(int hour){
   //int hour = 16;
   //int min = 55;
   int sec = 0;
-  int counter=0;
   while (1)
   {
-	  turnOffAllLEDs();
-  	  //clearNumberOnClock(counter);
-	  //counter++;
-	  //if(counter > 11) counter=0;
+	  ///*
+	    //display
+	    turnOffAllLEDs();
+	    setNumberOnClock(sec);
+
+	    //logic
+	    sec++;
+	    if(sec>11){
+	    	sec=0;
+	    	}
+
+	    HAL_Delay(1000);
+	    //*/
+/* test ham ex789
+ * clearNumberOnClock(counter);
+	  counter++;
+	  if(counter > 11) counter=0;
 	  HAL_Delay(1000);
+	  turnOffAllLEDs();
+*/
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

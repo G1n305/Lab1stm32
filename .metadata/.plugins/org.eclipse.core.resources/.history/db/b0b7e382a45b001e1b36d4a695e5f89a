@@ -253,10 +253,9 @@ int hourChange(int hour){
   int counter=0;
   while (1)
   {
-	  turnOffAllLEDs();
-  	  //clearNumberOnClock(counter);
-	  //counter++;
-	  //if(counter > 11) counter=0;
+  	  clearNumberOnClock(counter);
+	  counter++;
+	  if(counter > 11) counter=0;
 	  HAL_Delay(1000);
     /* USER CODE END WHILE */
 

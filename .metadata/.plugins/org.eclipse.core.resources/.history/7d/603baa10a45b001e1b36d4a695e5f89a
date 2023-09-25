@@ -253,11 +253,18 @@ int hourChange(int hour){
   int counter=0;
   while (1)
   {
-	  turnOffAllLEDs();
-  	  //clearNumberOnClock(counter);
-	  //counter++;
-	  //if(counter > 11) counter=0;
+  	  clearNumberOnClock(counter);
+	  counter++;
+	  if(counter > 11) counter=0;
 	  HAL_Delay(1000);
+	    //*/
+/* test ham ex789
+ * clearNumberOnClock(counter);
+	  counter++;
+	  if(counter > 11) counter=0;
+	  HAL_Delay(1000);
+	  turnOffAllLEDs();
+*/
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
