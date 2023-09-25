@@ -47,6 +47,7 @@
 
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
+static void MX_GPIO_Init(void);
 /* USER CODE BEGIN PFP */
 
 /* USER CODE END PFP */
@@ -83,14 +84,194 @@ int main(void)
   /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */
+  MX_GPIO_Init();
   /* USER CODE BEGIN 2 */
 
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
+  void turnOffAllLEDs() {
+      HAL_GPIO_WritePin(GPIOA, ZERO_Pin | ONE_Pin | TWO_Pin | THREE_Pin |
+    		  FOUR_Pin | FIVE_Pin | SIX_Pin |SEVEN_Pin |
+			  EI_Pin | NINE_Pin | TEN_Pin | ELV_Pin, GPIO_PIN_SET);
+  }
+  void turnOnAllLEDs(void) {
+      HAL_GPIO_WritePin(GPIOA, ZERO_Pin | ONE_Pin | TWO_Pin | THREE_Pin |
+    		  FOUR_Pin | FIVE_Pin | SIX_Pin |SEVEN_Pin |
+			  EI_Pin | NINE_Pin | TEN_Pin | ELV_Pin, GPIO_PIN_RESET);
+  }
+  void setNumberOnClock(int num) {
+	  if(num >= 0 && num <= 11){
+		 /turnOffAllLEDs();
+		  switch(num){
+		  case 0:
+			  HAL_GPIO_WritePin(ZERO_GPIO_Port, ZERO_Pin, GPIO_PIN_RESET);
+			  break;
+		  case 1:
+			  HAL_GPIO_WritePin(ONE_GPIO_Port, ONE_Pin, GPIO_PIN_RESET);
+			  break;
+		  case 2:
+			  HAL_GPIO_WritePin(TWO_GPIO_Port, TWO_Pin, GPIO_PIN_RESET);
+			  break;
+		  case 3:
+			  HAL_GPIO_WritePin(THREE_GPIO_Port, THREE_Pin, GPIO_PIN_RESET);
+			  break;
+		  case 4:
+			  HAL_GPIO_WritePin(FOUR_GPIO_Port, FOUR_Pin, GPIO_PIN_RESET);
+			  break;
+		  case 5:
+			  HAL_GPIO_WritePin(FIVE_GPIO_Port, FIVE_Pin, GPIO_PIN_RESET);
+			  break;
+		  case 6:
+			  HAL_GPIO_WritePin(SIX_GPIO_Port, SIX_Pin, GPIO_PIN_RESET);
+			  break;
+		  case 7:
+			  HAL_GPIO_WritePin(SEVEN_GPIO_Port, SEVEN_Pin, GPIO_PIN_RESET);
+			  break;
+		  case 8:
+			  HAL_GPIO_WritePin(EI_GPIO_Port, EI_Pin, GPIO_PIN_RESET);
+			  break;
+		  case 9:
+			  HAL_GPIO_WritePin(NINE_GPIO_Port, NINE_Pin, GPIO_PIN_RESET);
+			  break;
+		  case 10:
+			  HAL_GPIO_WritePin(TEN_GPIO_Port, TEN_Pin, GPIO_PIN_RESET);
+			  break;
+		  case 11:
+			  HAL_GPIO_WritePin(ELV_GPIO_Port, ELV_Pin, GPIO_PIN_RESET);
+			  break;
+		  }
+	  }
+  }
+  void setNumberOnClock60(int num) {
+	  if(num >= 0 && num <= 60){
+		  //turnOffAllLEDs();
+		  switch(num){
+		  case 0:
+			  HAL_GPIO_WritePin(ZERO_GPIO_Port, ZERO_Pin, GPIO_PIN_RESET);
+			  break;
+		  case 5:
+			  HAL_GPIO_WritePin(ONE_GPIO_Port, ONE_Pin, GPIO_PIN_RESET);
+			  break;
+		  case 10:
+			  HAL_GPIO_WritePin(TWO_GPIO_Port, TWO_Pin, GPIO_PIN_RESET);
+			  break;
+		  case 15:
+			  HAL_GPIO_WritePin(THREE_GPIO_Port, THREE_Pin, GPIO_PIN_RESET);
+			  break;
+		  case 20:
+			  HAL_GPIO_WritePin(FOUR_GPIO_Port, FOUR_Pin, GPIO_PIN_RESET);
+			  break;
+		  case 25:
+			  HAL_GPIO_WritePin(FIVE_GPIO_Port, FIVE_Pin, GPIO_PIN_RESET);
+			  break;
+		  case 30:
+			  HAL_GPIO_WritePin(SIX_GPIO_Port, SIX_Pin, GPIO_PIN_RESET);
+			  break;
+		  case 35:
+			  HAL_GPIO_WritePin(SEVEN_GPIO_Port, SEVEN_Pin, GPIO_PIN_RESET);
+			  break;
+		  case 40:
+			  HAL_GPIO_WritePin(EI_GPIO_Port, EI_Pin, GPIO_PIN_RESET);
+			  break;
+		  case 45:
+			  HAL_GPIO_WritePin(NINE_GPIO_Port, NINE_Pin, GPIO_PIN_RESET);
+			  break;
+		  case 50:
+			  HAL_GPIO_WritePin(TEN_GPIO_Port, TEN_Pin, GPIO_PIN_RESET);
+			  break;
+		  case 55:
+			  HAL_GPIO_WritePin(ELV_GPIO_Port, ELV_Pin, GPIO_PIN_RESET);
+			  break;
+		  }
+	  }
+  }
+  void clearNumberOnClock(int num){
+	  if(num >= 0 && num <= 11){
+		  turnOnAllLEDs();
+		  switch(num){
+		  case 0:
+			  HAL_GPIO_WritePin(ZERO_GPIO_Port, ZERO_Pin, GPIO_PIN_SET);
+			  break;
+		  case 1:
+			  HAL_GPIO_WritePin(ONE_GPIO_Port, ONE_Pin, GPIO_PIN_SET);
+			  break;
+		  case 2:
+			  HAL_GPIO_WritePin(TWO_GPIO_Port, TWO_Pin, GPIO_PIN_SET);
+			  break;
+		  case 3:
+			  HAL_GPIO_WritePin(THREE_GPIO_Port, THREE_Pin, GPIO_PIN_SET);
+			  break;
+		  case 4:
+			  HAL_GPIO_WritePin(FOUR_GPIO_Port, FOUR_Pin, GPIO_PIN_SET);
+			  break;
+		  case 5:
+			  HAL_GPIO_WritePin(FIVE_GPIO_Port, FIVE_Pin, GPIO_PIN_SET);
+			  break;
+		  case 6:
+			  HAL_GPIO_WritePin(SIX_GPIO_Port, SIX_Pin, GPIO_PIN_SET);
+			  break;
+		  case 7:
+			  HAL_GPIO_WritePin(SEVEN_GPIO_Port, SEVEN_Pin, GPIO_PIN_SET);
+			  break;
+		  case 8:
+			  HAL_GPIO_WritePin(EI_GPIO_Port, EI_Pin, GPIO_PIN_SET);
+			  break;
+		  case 9:
+			  HAL_GPIO_WritePin(NINE_GPIO_Port, NINE_Pin, GPIO_PIN_SET);
+			  break;
+		  case 10:
+			  HAL_GPIO_WritePin(TEN_GPIO_Port, TEN_Pin, GPIO_PIN_SET);
+			  break;
+		  case 11:
+			  HAL_GPIO_WritePin(ELV_GPIO_Port, ELV_Pin, GPIO_PIN_SET);
+			  break;
+		  }
+	  }
+  }
+
+//ham support
+int roundDownToNearest5(int num) {
+      int quotient = num / 5;
+      int roundedNum = quotient * 5;
+      return roundedNum;
+  }
+int hourChange(int hour){
+	int validHour;
+	if(hour > 11){
+		if(hour == 12 || hour==24){
+			validHour=0;
+		}
+		validHour=hour-12;
+	}
+	return validHour;
+}
+  //int hour = 16;
+  //int min = 55;
+  int sec = 0;
   while (1)
   {
+	  ///*
+	    //display
+	    turnOffAllLEDs();
+	    setNumberOnClock(sec);
+
+	    //logic
+	    sec++;
+	    if(sec>11){
+	    	sec=0;
+	    	}
+
+	    HAL_Delay(1000);
+	    //*/
+/* test ham ex789
+ * clearNumberOnClock(counter);
+	  counter++;
+	  if(counter > 11) counter=0;
+	  HAL_Delay(1000);
+	  turnOffAllLEDs();
+*/
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -131,6 +312,36 @@ void SystemClock_Config(void)
   {
     Error_Handler();
   }
+}
+
+/**
+  * @brief GPIO Initialization Function
+  * @param None
+  * @retval None
+  */
+static void MX_GPIO_Init(void)
+{
+  GPIO_InitTypeDef GPIO_InitStruct = {0};
+
+  /* GPIO Ports Clock Enable */
+  __HAL_RCC_GPIOA_CLK_ENABLE();
+
+  /*Configure GPIO pin Output Level */
+  HAL_GPIO_WritePin(GPIOA, ZERO_Pin|ONE_Pin|TWO_Pin|THREE_Pin
+                          |FOUR_Pin|FIVE_Pin|SIX_Pin|SEVEN_Pin
+                          |EI_Pin|NINE_Pin|TEN_Pin|ELV_Pin, GPIO_PIN_RESET);
+
+  /*Configure GPIO pins : ZERO_Pin ONE_Pin TWO_Pin THREE_Pin
+                           FOUR_Pin FIVE_Pin SIX_Pin SEVEN_Pin
+                           EI_Pin NINE_Pin TEN_Pin ELV_Pin */
+  GPIO_InitStruct.Pin = ZERO_Pin|ONE_Pin|TWO_Pin|THREE_Pin
+                          |FOUR_Pin|FIVE_Pin|SIX_Pin|SEVEN_Pin
+                          |EI_Pin|NINE_Pin|TEN_Pin|ELV_Pin;
+  GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
+  GPIO_InitStruct.Pull = GPIO_NOPULL;
+  GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
+  HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+
 }
 
 /* USER CODE BEGIN 4 */
