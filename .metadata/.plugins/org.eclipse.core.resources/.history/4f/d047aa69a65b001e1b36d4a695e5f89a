@@ -103,7 +103,7 @@ int main(void)
   }
   void setNumberOnClock(int num) {
 	  if(num >= 0 && num <= 11){
-		  //turnOffAllLEDs();
+		 //turnOffAllLEDs();
 		  switch(num){
 		  case 0:
 			  HAL_GPIO_WritePin(ZERO_GPIO_Port, ZERO_Pin, GPIO_PIN_RESET);
@@ -230,7 +230,49 @@ int main(void)
 		  }
 	  }
   }
-
+  void clearNumberOnClock60(int num){
+	  if(num >= 0 && num < 60){
+		  //turnOnAllLEDs();
+		  switch(num){
+		  case 0:
+			  HAL_GPIO_WritePin(ZERO_GPIO_Port, ZERO_Pin, GPIO_PIN_SET);
+			  break;
+		  case 5:
+			  HAL_GPIO_WritePin(ONE_GPIO_Port, ONE_Pin, GPIO_PIN_SET);
+			  break;
+		  case 10:
+			  HAL_GPIO_WritePin(TWO_GPIO_Port, TWO_Pin, GPIO_PIN_SET);
+			  break;
+		  case 15:
+			  HAL_GPIO_WritePin(THREE_GPIO_Port, THREE_Pin, GPIO_PIN_SET);
+			  break;
+		  case 20:
+			  HAL_GPIO_WritePin(FOUR_GPIO_Port, FOUR_Pin, GPIO_PIN_SET);
+			  break;
+		  case 25:
+			  HAL_GPIO_WritePin(FIVE_GPIO_Port, FIVE_Pin, GPIO_PIN_SET);
+			  break;
+		  case 30:
+			  HAL_GPIO_WritePin(SIX_GPIO_Port, SIX_Pin, GPIO_PIN_SET);
+			  break;
+		  case 35:
+			  HAL_GPIO_WritePin(SEVEN_GPIO_Port, SEVEN_Pin, GPIO_PIN_SET);
+			  break;
+		  case 40:
+			  HAL_GPIO_WritePin(EI_GPIO_Port, EI_Pin, GPIO_PIN_SET);
+			  break;
+		  case 45:
+			  HAL_GPIO_WritePin(NINE_GPIO_Port, NINE_Pin, GPIO_PIN_SET);
+			  break;
+		  case 50:
+			  HAL_GPIO_WritePin(TEN_GPIO_Port, TEN_Pin, GPIO_PIN_SET);
+			  break;
+		  case 55:
+			  HAL_GPIO_WritePin(ELV_GPIO_Port, ELV_Pin, GPIO_PIN_SET);
+			  break;
+		  }
+	  }
+  }
 //ham support
 int roundDownToNearest5(int num) {
       int quotient = num / 5;
@@ -247,40 +289,17 @@ int hourChange(int hour){
 	}
 	return validHour;
 }
-  int hour = 16;
-  int min = 55;
-  int sec = 0;
-  int counter=0;
+ int hour = 16;
+ int min = 52;
+ int sec = 0;
+  //int counter=0;
   while (1)
   {
-	  ///*
-	    //display
-	    turnOffAllLEDs();
-	    setNumberOnClock(hourChange(hour));
-	    setNumberOnClock60(roundDownToNearest5(min));
-	    setNumberOnClock60(roundDownToNearest5(sec));
-
-	    //logic
-	    sec++;
-	    if(sec==60){
-	    	sec=0;
-	    	min++;
-	    	if(min==60){
-	    		min=0;
-	    		hour++;
-	    		hourChange(hour);
-	    		}
-	    	}
-
-	    HAL_Delay(1000);
-	    //*/
-/* test ham ex789
- * clearNumberOnClock(counter);
-	  counter++;
-	  if(counter > 11) counter=0;
+	  turnOnAllLEDs();
+	  clearNumberOnClock60(roundDownToNearest5(sec));
+	  clearNumberOnClock60(roundDownToNearest5(min));
+	  clearNumberOnClock(hourChange(hour));
 	  HAL_Delay(1000);
-	  turnOffAllLEDs();
-*/
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
