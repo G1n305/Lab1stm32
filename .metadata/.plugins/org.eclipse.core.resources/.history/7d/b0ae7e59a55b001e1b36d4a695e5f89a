@@ -253,7 +253,7 @@ int hourChange(int hour){
   int counter=0;
   while (1)
   {
-	  turnOffAllLEDs();
+	  turnOnAllLEDs();
 	  setNumberOnClock(roundDownToNearest5(sec));
 	  setNumberOnClock(roundDownToNearest5(min));
 	  setNumberOnClock(hourChange(hour));
