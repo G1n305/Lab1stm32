@@ -65,3 +65,13 @@ java.io.FileNotFoundException: D:\lab1_Image\lab1\git\lab1\Debug\lab1.map (The s
 
 !ENTRY com.st.stm32cube.ide.mcu.ide 1 1 2023-09-25 19:46:29.843
 !MESSAGE Started RMI Server, listening on port 41337
+
+!ENTRY com.st.stm32cube.ide.mcu.stackanalyzer 4 0 2023-09-25 19:50:42.674
+!MESSAGE Stackanalyzer failed to analyze input
+!STACK 0
+java.lang.Exception: File: D:\lab1_Image\lab1\git\lab1\Debug\lab1.elfdo not exists
+	at com.st.stm32cube.ide.mcu.utils.assembly.Disassembler.<init>(Disassembler.java:56)
+	at com.st.stm32cube.ide.mcu.utils.assembly.Disassembler.<init>(Disassembler.java:84)
+	at com.st.stm32cube.ide.mcu.stackanalyzer.ui.StackAnalyzerView.inputChanged(StackAnalyzerView.java:914)
+	at com.st.stm32cube.ide.mcu.stackanalyzer.ui.StackAnalyzerView.lambda$14(StackAnalyzerView.java:1211)
+	at java.base/java.lang.Thread.run(Thread.java:834)

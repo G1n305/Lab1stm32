@@ -91,7 +91,6 @@ int main(void)
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-  /*
   void Display7SEG(int num){
 	  HAL_GPIO_WritePin(a_GPIO_Port,a_Pin, GPIO_PIN_SET);
 	  HAL_GPIO_WritePin(b_GPIO_Port,b_Pin, GPIO_PIN_SET);
@@ -172,9 +171,8 @@ int main(void)
 		  break;
 	  }
   }
-  */
   int counter = 0;
-  //int counter7seg=3;
+  int counter7seg=3;
 
   while (1)
   {
@@ -189,7 +187,7 @@ int main(void)
 		 //đèn đỏ 1 sáng
 		 HAL_GPIO_WritePin(LED_RED_GPIO_Port,LED_RED_Pin,GPIO_PIN_RESET);
 
-		 //Display7SEG(counter7seg);
+		 Display7SEG(counter7seg);
 		 //đèn xanh 2 sáng
 		 HAL_GPIO_WritePin(LED_GREEN_2_GPIO_Port,LED_GREEN_2_Pin,GPIO_PIN_RESET);
 		 //tắt đèn vàng 2
@@ -206,7 +204,7 @@ int main(void)
 	 }
 	 else if(counter >=5 && counter < 11)
 	 {
-		 //Display7SEG(11-counter);
+		 Display7SEG(11-counter);
 		 //tắt đèn xanh 2
 		 HAL_GPIO_WritePin(LED_GREEN_2_GPIO_Port,LED_GREEN_2_Pin,GPIO_PIN_SET);
 		 //tắt đèn vàng 2
@@ -228,8 +226,8 @@ int main(void)
 		 }
 	 }
 	 counter++;
-	 //counter7seg--;
-	 //if(counter7seg<0)counter7seg=3;
+	 counter7seg--;
+	 if(counter7seg<0)counter7seg=3;
 	 if(counter > 10)
 	 	 {
 	 		 counter= 0;
